@@ -1,0 +1,10 @@
+#!/bin/sh /etc/rc.common
+
+#start up script for Dragino2
+START=99
+
+start() {
+        echo 24 > /sys/class/gpio/export
+        echo "high" > /sys/class/gpio/gpio24/direction
+	 ifconfig eth0 172.31.255.254 netmask 255.255.255.252
+}
