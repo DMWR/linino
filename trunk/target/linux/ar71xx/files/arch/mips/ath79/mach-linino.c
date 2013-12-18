@@ -28,21 +28,21 @@
 #define DS2_B
 
 #define DS_GPIO_LED_WLAN		0
-#define DS_GPIO_LED_USB			1
+#define DS_GPIO_LED_USB			28
 
-#define DS_GPIO_OE			21
-#define DS_GPIO_AVR_RESET		18
+#define DS_GPIO_OE			19
+#define DS_GPIO_AVR_RESET		20
 
 // Maintained to have the console in the previous version of DS2 working
 #define DS_GPIO_AVR_RESET_DS2           7
 #define DS2_PREV_RESET_PIN
 
 #ifdef DS1
-#define DS_GPIO_OE2			23
+#define DS_GPIO_OE2			26
 #else
-#define DS_GPIO_OE2                     22
-#define DS_GPIO_UART_ENA		23
-#define DS_GPIO_CONF_BTN		20
+#define DS_GPIO_OE2                     27
+#define DS_GPIO_UART_ENA		24
+#define DS_GPIO_CONF_BTN		11
 #endif
 
 #define DS_KEYS_POLL_INTERVAL		20	/* msecs */
@@ -164,7 +164,7 @@ static void __init ds_setup(void)
 		printk("Error setting GPIO OE2\n");
 #else
         if (gpio_request_one(DS_GPIO_UART_ENA,
-                 GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED,
+                 GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
                  "UART-ENA") != 0)
                 printk("Error setting GPIO Uart Enable\n");
         

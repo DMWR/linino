@@ -33,6 +33,8 @@ endef
 define Package/yun-conf/install
 	$(INSTALL_DIR) $(1)/etc/avahi/services
 	$(INSTALL_DIR) $(1)/etc/arduino
+	$(INSTALL_DIR) $(1)/etc/arduino/ATmegaBoot
+	$(INSTALL_DIR) $(1)/etc/arduino/optiboot
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/etc/triggerhappy/triggers.d
 	$(INSTALL_DIR) $(1)/etc/linino
@@ -54,6 +56,9 @@ define Package/yun-conf/install
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_timezones.csv.gz $(1)/etc/arduino
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_error_statuses.csv.gz $(1)/etc/arduino
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_error_reasons.csv.gz $(1)/etc/arduino
+
+	$(INSTALL_DATA) ./files/etc/arduino/ATmegaBoot/*.* $(1)/etc/arduino/ATmegaBoot/
+	$(INSTALL_DATA) ./files/etc/arduino/optiboot/*.* $(1)/etc/arduino/optiboot/
 
 	$(INSTALL_DATA) ./files/etc/linino/LININO_CONTRIBUTORS.TXT $(1)/etc/linino/
 endef

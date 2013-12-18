@@ -35,10 +35,11 @@ endef
 define Package/cpu-mcu-bridge/install
 	$(INSTALL_DIR) $(1)/usr/lib/python2.7/bridge
 
-	$(RM) $(PKG_BUILD_DIR)/{contextlib,tty}.py*
-	$(RM) $(PKG_BUILD_DIR)/termios.so
+	#$(RM) $(PKG_BUILD_DIR)/{contextlib,tty}.py*
+	#$(RM) $(PKG_BUILD_DIR)/termios.so
 
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/*.py $(1)/usr/lib/python2.7/bridge
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/termios.so $(1)/usr/lib/python2.7/bridge
 endef
 
 $(eval $(call BuildPackage,cpu-mcu-bridge))
