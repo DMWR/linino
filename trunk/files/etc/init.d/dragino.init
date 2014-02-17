@@ -7,4 +7,6 @@ start() {
         echo 24 > /sys/class/gpio/export
         echo "high" > /sys/class/gpio/gpio24/direction
 	 ifconfig eth0 172.31.255.254 netmask 255.255.255.252
+	 /etc/init.d/avahi-daemon restart
+	 /usr/bin/reset-mcu
 }
