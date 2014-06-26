@@ -40,7 +40,8 @@
 #ifdef DS1
 #define DS_GPIO_OE2			26
 #else
-#define DS_GPIO_OE2                     27
+#define DS_GPIO_27                     27
+#define DS_GPIO_26                     26
 #define DS_GPIO_UART_ENA		24
 #define DS_GPIO_CONF_BTN		11
 #endif
@@ -168,11 +169,17 @@ static void __init ds_setup(void)
                  "UART-ENA") != 0)
                 printk("Error setting GPIO Uart Enable\n");
         
-	// enable OE of level shifter
-        if (gpio_request_one(DS_GPIO_OE2,
+	// export GPIO27
+        if (gpio_request_one(DS_GPIO_27,
                  GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED,
-                 "OE-2") != 0)
-                printk("Error setting GPIO OE2\n");
+                 "GPIO27") != 0)
+                printk("Error setting GPIO27\n");
+
+	// export GPIO26
+        if (gpio_request_one(DS_GPIO_26,
+                 GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED,
+                 "GPIO26") != 0)
+                printk("Error setting GPIO26\n");
 #endif
 }
 

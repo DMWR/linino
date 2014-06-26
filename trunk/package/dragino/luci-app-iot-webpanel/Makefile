@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-iot-webpanel
-PKG_VERSION:=1.0.0
-PKG_RELEASE:=1
+PKG_VERSION:=Dragino-Yun-Beta1.3
+PKG_RELEASE:=2
 
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -32,23 +32,33 @@ define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
 	mkdir -p $(PKG_BUILD_DIR)/usr
 	mkdir -p $(PKG_BUILD_DIR)/www
-	$(CP) ./usr/* $(PKG_BUILD_DIR)/usr
-	$(CP) ./www/* $(PKG_BUILD_DIR)/www
+	mkdir -p $(PKG_BUILD_DIR)/etc/config
+	$(CP) ./files/usr/* $(PKG_BUILD_DIR)/usr
+	$(CP) ./files/www/* $(PKG_BUILD_DIR)/www
+	$(CP) ./files/etc/* $(PKG_BUILD_DIR)/etc
 endef
 
 define Build/Compile
 	# NOOP
 endef
 
+BUILD_TIME:=$(shell date)
+
 define Package/luci-app-iot-webpanel/install
+	$(INSTALL_DIR) $(1)/etc/config
+	$(CP) $(PKG_BUILD_DIR)/etc/* $(1)/etc/
+	$(SED) 's,$$$$F,$(PKG_VERSION).$(PKG_RELEASE),g' $(1)/etc/banner
+	$(SED) 's,$$$$T,$(BUILD_TIME),g' $(1)/etc/banner
+
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/arduino
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/admin
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/arduino
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/dragino
 	$(INSTALL_DIR) $(1)/usr/lib/lua/dragino
 	$(INSTALL_DIR) $(1)/www/luci-static/resources/arduino
+	$(INSTALL_DIR) $(1)/www/luci-static/resources/dragino
 
-	find $(PKG_BUILD_DIR)/usr/ -name '*.lua' -exec luac -s -o {} {} \;
+	#find $(PKG_BUILD_DIR)/usr/ -name '*.lua' -exec luac -s -o {} {} \;
 	$(CP) $(PKG_BUILD_DIR)/usr/* $(1)/usr/
 	$(CP) $(PKG_BUILD_DIR)/www/* $(1)/www/
 endef

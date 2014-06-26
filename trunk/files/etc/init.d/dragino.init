@@ -2,11 +2,46 @@
 
 #start up script for Dragino2
 START=99
+UARTMODE=`uci get iot.general.uartmode`
 
 start() {
-        echo 24 > /sys/class/gpio/export
-        echo "high" > /sys/class/gpio/gpio24/direction
 	 ifconfig eth0 172.31.255.254 netmask 255.255.255.252
 	 /etc/init.d/avahi-daemon restart
 	 /usr/bin/reset-mcu
+	 load_uart
+}
+
+restart() {
+	load_uart
+}
+
+load_uart() {
+	
+	# Kill possible running daemon;
+	uartpid=`ps w| grep uart_passthrough | grep -v grep | awk '{print $1}'`
+	if [[ ! -z $uartpid ]]; then 
+		kill $uartpid
+	fi
+
+	if [ $UARTMODE = "passthrough" ]; then
+		/usr/bin/set_uart_console 0
+		echo 1 > /sys/class/gpio/gpio24/value
+		echo 0 > /sys/class/gpio/gpio27/value
+		/usr/lib/lua/dragino/uart_passthrough.lua &
+
+	elif [ $UARTMODE = "beeconsole" ]; then
+		/usr/bin/set_uart_console 0
+		echo 0 > /sys/class/gpio/gpio24/value
+		echo 1 > /sys/class/gpio/gpio27/value
+
+	elif [ $UARTMODE = "control" ]; then
+		/usr/bin/set_uart_console 0
+		echo 1 > /sys/class/gpio/gpio24/value
+		echo 0 > /sys/class/gpio/gpio27/value	
+
+	elif [ $UARTMODE = "bridge" ]; then
+		/usr/bin/set_uart_console 1
+		echo 1 > /sys/class/gpio/gpio24/value
+		echo 0 > /sys/class/gpio/gpio27/value			
+	fi
 }

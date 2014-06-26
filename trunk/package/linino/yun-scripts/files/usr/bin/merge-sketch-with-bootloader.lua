@@ -1,5 +1,23 @@
 #!/usr/bin/lua
 
+local uci = require("luci.model.uci")
+uci = uci.cursor()
+
+local bootloader_dir='/etc/arduino/'
+local bootloader
+local board = uci:get("arduino","mcu","board")
+
+if board == 'leonardo' then
+ bootloader = 'Caterina-Yun.hex' 
+elseif board == 'uno' then
+  bootloader = 'optiboot/optiboot_atmega328.hex'
+elseif board == 'duemilanove328' then
+  bootloader = 'ATmegaBoot/ATmegaBOOT_168_atmega328.hex'
+elseif board == 'duemilanove168' then
+  bootloader = 'ATmegaBoot/ATmegaBOOT_168_diecimila.hex'
+end
+
+
 if #arg ~= 1 then
   print("Missing sketch file name")
   return 1
@@ -23,7 +41,8 @@ uploaded_sketch:close()
 --removes last line
 table.remove(sketch)
 
-for line in io.lines("/etc/arduino/Caterina-Yun.hex") do
+
+for line in io.lines(bootloader_dir..bootloader) do
   table.insert(sketch, line)
 end
 

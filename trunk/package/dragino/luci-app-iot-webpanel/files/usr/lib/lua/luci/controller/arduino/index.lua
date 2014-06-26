@@ -250,6 +250,10 @@ end
 
 function homepage()
   local wa = require("luci.tools.webadmin")
+  local utility = require ("dragino.utility")
+  local f_version,b_time
+  f_version,b_time = utility.getVersion()
+
   local network = luci.util.exec("LANG=en ifconfig | grep HWaddr")
   network = string.split(network, "\n")
   local ifnames = {}
@@ -293,7 +297,9 @@ function homepage()
 
   local ctx = {
     hostname = luci.sys.hostname(),
-    ifaces = ifaces
+    ifaces = ifaces,
+    firmware_version = f_version,
+    build_time = b_time
   }
 
   --Traslates status codes extracted from include/linux/ieee80211.h to a more friendly version
