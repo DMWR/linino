@@ -83,11 +83,11 @@ static struct gpio_keys_button ds_gpio_keys[] __initdata = {
 
 static void __init ds_common_setup(void)
 {
-	static u8 mac[6];
+	//static u8 mac[6];
 
 	u8 *art = (u8 *) KSEG1ADDR(0x1fff0000);
 	ath79_register_m25p80(NULL);
-#if 0
+#if 1
 	ath79_register_wmac(art + DS_CALDATA_OFFSET,
 			    art + DS_WMAC_MAC_OFFSET);
 
