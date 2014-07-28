@@ -35,6 +35,7 @@ define Package/yun-conf/install
 	$(INSTALL_DIR) $(1)/etc/arduino
 	$(INSTALL_DIR) $(1)/etc/arduino/ATmegaBoot
 	$(INSTALL_DIR) $(1)/etc/arduino/optiboot
+	$(INSTALL_DIR) $(1)/etc/arduino/stk500v2
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/etc/triggerhappy/triggers.d
 	$(INSTALL_DIR) $(1)/etc/linino
@@ -58,6 +59,7 @@ define Package/yun-conf/install
 
 	$(INSTALL_DATA) ./files/etc/arduino/ATmegaBoot/*.* $(1)/etc/arduino/ATmegaBoot/
 	$(INSTALL_DATA) ./files/etc/arduino/optiboot/*.* $(1)/etc/arduino/optiboot/
+	$(INSTALL_DATA) ./files/etc/arduino/stk500v2/*.* $(1)/etc/arduino/stk500v2/
 
 	$(INSTALL_DATA) ./files/etc/linino/LININO_CONTRIBUTORS.TXT $(1)/etc/linino/
 endef

@@ -15,6 +15,8 @@ elseif board == 'duemilanove328' then
   bootloader = 'ATmegaBoot/ATmegaBOOT_168_atmega328.hex'
 elseif board == 'duemilanove168' then
   bootloader = 'ATmegaBoot/ATmegaBOOT_168_diecimila.hex'
+elseif board == 'mega2560' then
+  bootloader = 'stk500v2/stk500boot_v2_mega2560.hex'
 end
 
 
