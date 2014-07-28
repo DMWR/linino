@@ -59,9 +59,10 @@ local function config_get()
 
   local board_type = {}
   board_type[1] = { code = "leonardo", label = "Leonardo, M32, M32W" }
-  board_type[2] = { code = "uno", label = "Arduino Uno" }
+  board_type[2] = { code = "uno", label = "Arduino Uno w/ATmega328P" }
   board_type[3] = { code = "duemilanove328", label = "Arduino Duemilanove or Diecimila w/ATmega328" }
-  board_type[4] = { code = "duemilanove168", label = "Arduino Duemilanove or Diecimila w/ATmega168,MRFM14B" }
+  board_type[4] = { code = "duemilanove168", label = "Arduino Duemilanove or Diecimila w/ATmega168,MRFM12B" }
+  board_type[5] = { code = "mega2560", label = "Arduino Mega2560" }
 
   local uploadtype_list = {}
   uploadtype_list[1] = { code = "numerical", label = "Numerical" }
