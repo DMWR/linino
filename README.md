@@ -1,5 +1,3 @@
-# Linino
+# Dragino Yun Image
 
-Linino is a GNU/Linux distribution based on OpenWRT and mantained by DogHunter
-
-http://www.linino.org/
+Port from Linino. Used for MS14 and HE to build for Arduino Yun Applications. 
