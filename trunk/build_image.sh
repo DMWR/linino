@@ -56,7 +56,7 @@ fi
 echo "Set up new directory name with date"
 DATE=`date +%Y%m%d-%H%M`
 mkdir image/$APP-build--v$VERSION--$DATE
-IMAGE_DIR='image/$APP-build--v$VERSION--$DATE'
+IMAGE_DIR=image/$APP-build--v$VERSION--$DATE
 
 echo  "Copy files to ./image folder"
 cp ./bin/ar71xx/openwrt-ar71xx-generic-linino-16M-kernel.bin     ./$IMAGE_DIR/dragino2-yun-$APP-v$VERSION-kernel.bin
