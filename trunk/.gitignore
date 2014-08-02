@@ -11,7 +11,7 @@
 /logs
 /feeds
 /feeds.conf
-/files
+/image
 /package/feeds
 /package/openwrt-packages
 *.orig
