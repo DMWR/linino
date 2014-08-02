@@ -35,7 +35,8 @@ echo ""
 echo "Copy config and files"
 echo ""
 cp .config.$APP .config
-cp -r files-$APP files
+cp -r files-common files
+cp -rf files-$APP/* files
 
 echo ""
 echo "Update version and build date"
@@ -66,6 +67,18 @@ cp ./bin/ar71xx/openwrt-ar71xx-generic-linino-16M-squashfs-sysupgrade.bin ./$IMA
 
 echo "Update md5sums"
 cat ./bin/ar71xx/md5sums | grep "linino-16M" | awk '{gsub(/openwrt-ar71xx-generic-linino-16M/,"dragino2-yun-'"$APP"'-v'"$VERSION"'")}{print}' >> $IMAGE_DIR/md5sums
+
+
+echo ""
+echo "restore the files and config to common build"
+rm -rf files
+
+echo ""
+echo "Copy config and files"
+echo ""
+cp .config.common .config
+cp -r files-common files
+
 echo ""
 echo "End Dragino2 build"
 echo ""
