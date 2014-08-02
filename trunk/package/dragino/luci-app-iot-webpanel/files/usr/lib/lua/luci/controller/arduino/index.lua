@@ -197,7 +197,7 @@ function index()
   end
 
   -- web panel
-  local webpanel = entry({ "webpanel" }, alias("webpanel", "go_to_homepage"), _("Arduino Web Panel"), 10)
+  local webpanel = entry({ "webpanel" }, alias("webpanel", "go_to_homepage"), _("Dragino Web Panel"), 10)
   webpanel.sysauth = "root"
   webpanel.sysauth_authenticator = "arduinoauth"
 

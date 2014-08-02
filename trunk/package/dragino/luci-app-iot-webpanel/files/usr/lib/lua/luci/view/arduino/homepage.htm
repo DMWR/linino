@@ -35,22 +35,21 @@ http.prepare_content("text/html; charset=utf-8")
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
-  <link rel="stylesheet" type="text/css" href="<%= resource %>/arduino/style.ugly.css" />
-  <title>Y&uacute;n &#20113;</title>
+  <link rel="stylesheet" type="text/css" href="<%= resource %>/arduino/style.css" />
+  <title>Dragino Yun</title>
 </head>
 <body>
 <div id="container">
   <div id="header">
     <div class="wrapper">
-      <h1>Y&uacute;n &#20113;</h1>
-      <div id="logo"><a href="<%= pcdata(controller .. '/webpanel') %>"><img src="<%= resource %>/arduino/logo.png" alt="Y&uacute;n"/></a></div>
-      <div id="logophone"><a href="<%= pcdata(controller .. '/webpanel') %>"><img src="<%= resource %>/arduino/logo_phone.png" alt="Y&uacute;n"/></a></div>
+      <h1>Dragino Yun</h1>
+      <div id="logo"><a href="<%= pcdata(controller .. '/webpanel') %>"><img src="<%= resource %>/arduino/logo.png" alt="Dragino Yun"/></a></div>
     </div>
   </div>
   <div id="content">
     <div class="wrapper">
       <div id="welcome_container">
-        <h2>Welcome to <strong><%= hostname %></strong>, your Arduino Y&uacute;n</h2>
+        <h2>Welcome to use <strong><%= hostname %></strong></h2>
       </div>
       <div id="configurebtn_container">
         <form method="get" action="<%= pcdata(controller .. '/webpanel/config') %>">

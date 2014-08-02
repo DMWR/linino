@@ -43,7 +43,7 @@ select {
 }
 
 a {
-    color: #00929f;
+    color: #0087b1;
 }
 
 p {
@@ -101,7 +101,7 @@ ul {
 }
 
 .req {
-    color: #00929f;
+    color: #0087b1;
     font-size: 1.2em;
     line-height: .1em;
 }
@@ -124,13 +124,13 @@ input.error {
 }
 
 body {
-    background-color: #00929f;
+    background-color: #0087b1;
     color: #222;
     font: 1em/1.4em "Lucida Grande", Lucida, Verdana, sans-serif;
 }
 
 html {
-    background: #00929f;
+    background: #0087b1;
 }
 
 h1 {
@@ -280,9 +280,9 @@ input.submit {
 }
 
 input.submit.saveForm {
-    border: 1px solid #1e8488;
-    box-shadow: 0 3px 0 #1e8488;
-    background: #00929f;
+    border: 1px solid #037691;
+    box-shadow: 0 3px 0 #037691;
+    background: #0087b1;
     color: #FFF;
     font: .95em "Lucida Grande", Lucida, Verdana, sans-serif;
     width: 100%;
@@ -376,11 +376,11 @@ input#discard {
 }
 
 #rest_api {
-    border-top: .2em solid #00929f;
+    border-top: .2em solid #0087b1;
 }
 
 #yun_config {
-    border-top: 1em solid #00929f;
+    border-top: 1em solid #0087b1;
 }
 
 input#conf_rest_btn {
@@ -397,7 +397,7 @@ input#conf_rest_btn {
 }
 
 .progress_bar {
-    background: #00929f;
+    background: #0087b1;
     width: 0;
     -webkit-transition: width .35s ease-out 0s;
     -moz-transition: width .35s ease-out 0s;
@@ -452,7 +452,7 @@ li.folder {
 }
 
 .connected {
-    color: #00929f;
+    color: #0087b1;
     padding-left: 1em;
 }
 
@@ -525,7 +525,7 @@ span.row span.val {
     }
 
     #header {
-        background: #00929f;
+        background: #0087b1;
         width: 100%;
         float: none;
         text-align: center;
@@ -561,7 +561,7 @@ span.row span.val {
     }
 
     #header {
-        background: #00929f;
+        background: #0087b1;
         width: 100%;
         float: none;
         text-align: center;
@@ -623,7 +623,7 @@ span.row span.val {
 
 @media (min-width:1200px) {
     body {
-        background: #00929f;
+        background: #0087b1;
         font-size: .875em;
     }
 

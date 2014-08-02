@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-iot-webpanel
-PKG_VERSION:=Dragino-Yun-Beta1.3
-PKG_RELEASE:=3
+PKG_VERSION:=Dragino-Yun-2.0
+PKG_RELEASE:=1
 
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -47,8 +47,6 @@ BUILD_TIME:=$(shell date)
 define Package/luci-app-iot-webpanel/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(CP) $(PKG_BUILD_DIR)/etc/* $(1)/etc/
-	$(SED) 's,$$$$F,$(PKG_VERSION).$(PKG_RELEASE),g' $(1)/etc/banner
-	$(SED) 's,$$$$T,$(BUILD_TIME),g' $(1)/etc/banner
 
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/arduino
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/admin
