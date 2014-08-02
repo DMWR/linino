@@ -15,6 +15,7 @@ start() {
 	/etc/init.d/avahi-daemon restart
 	/usr/bin/reset-mcu
 	load_uart
+	/usr/sbin/link_arduino_www.sh
 }
 
 restart() {
