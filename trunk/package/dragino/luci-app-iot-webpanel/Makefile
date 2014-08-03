@@ -42,8 +42,6 @@ define Build/Compile
 	# NOOP
 endef
 
-BUILD_TIME:=$(shell date)
-
 define Package/luci-app-iot-webpanel/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(CP) $(PKG_BUILD_DIR)/etc/* $(1)/etc/
@@ -52,7 +50,6 @@ define Package/luci-app-iot-webpanel/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/admin
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/arduino
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/dragino
-	$(INSTALL_DIR) $(1)/usr/lib/lua/dragino
 	$(INSTALL_DIR) $(1)/www/luci-static/resources/arduino
 	$(INSTALL_DIR) $(1)/www/luci-static/resources/dragino
 

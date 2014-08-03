@@ -44,9 +44,10 @@ function tabledump(t,indent)
 	end
 end
 
---Get Firmware Version
+--Get Version Info
 --@return f_version firmware version
 --@return b_time build time
+--@return h_model model 
 function getVersion()
 	for line in io.lines('/etc/banner') do 
 		if string.match(line,'Version:[%s]+(.+)') then 
@@ -55,8 +56,11 @@ function getVersion()
 		if string.match(line,'Build[%s]+(.+)') then 
 			b_time = string.match(line,'Build[%s]+(.+)')  
 		end
+		if string.match(line,'Model:[%s]+(.+)') then 
+			h_model = string.match(line,'Model:[%s]+(.+)')  
+		end
 	end
-	return f_version,b_time
+	return f_version,b_time,h_model
 end
 
 --log data to device
